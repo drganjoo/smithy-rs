@@ -49,3 +49,9 @@ message = "Fix a bug where a `sigv4-s3express` auth scheme was incorrectly posit
 references = ["smithy-rs#3498"]
 meta = { "breaking" = false, "bug" = true, "tada" = false }
 author = "ysaito1001"
+
+[[smithy-rs]]
+message = "Clients now enforce that the Content-Length sent by the server matches the length of the returned response body. In most cases, Hyper will enforce this behavior, however, in extremely rare circumstances where the Tokio runtime is dropped in between subsequent requests, this scenario can occur."
+references = ["smithy-rs#3491", "aws-sdk-rust#1079"]
+meta = { "breaking" = false, "bug" = true, "tada" = false }
+author = "rcoh"
